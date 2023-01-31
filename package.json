@@ -16,7 +16,6 @@
     "emoji-picker-element": "^1.15.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.1",
-    "rm": "^0.1.8",
     "swiper": "^8.4.5"
   }
 }

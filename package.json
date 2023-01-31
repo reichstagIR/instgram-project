@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prefix": "postcss ./css/main.css --use autoprefixer -d ./css/prefixed/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^10.4.13",
     "bootstrap": "^5.2.3",
-    "jquery": "^3.6.1"
+    "emoji-picker-element": "^1.15.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.6.1",
+    "rm": "^0.1.8",
+    "swiper": "^8.4.5"
   }
 }

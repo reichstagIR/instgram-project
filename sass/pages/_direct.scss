@@ -1,0 +1,281 @@
+@use "../abstracts/functions" as function;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixin;
+@use "../layout/breakpoints" as breakpoint;
+
+
+.directs{
+
+    @include mixin.home-sections(0);
+    border-radius: function.rem(4);
+    height: max-content;
+    
+    @include breakpoint.respond-to("sm"){
+        
+        height: 78%;
+
+    }
+
+
+    &__right{
+
+        border-left: none;
+        height: 100%;
+        
+        @include breakpoint.respond-to("sm"){
+        
+            border-left: 1px solid variables.$section-border;
+    
+        }
+        
+        &__current__account{
+            
+            @include mixin.flex(space-between , center , row);
+            padding: function.rem(20) function.rem(17);
+            border-bottom: 1px solid variables.$section-border;
+            
+            &__account-name{
+                
+                margin-bottom: 0;
+                font-weight: 600;
+                color: variables.$profile-color;
+                
+            }
+            
+            &__btn-choose{
+                
+                cursor: pointer;
+                
+            }
+            
+            
+        }
+        
+        &__conversations{
+            
+            flex-direction: column;
+            flex-wrap: nowrap;
+            margin: function.rem(8) 0;
+            max-height: calc(100% - 72px);
+            height: 100%;
+            overflow: auto; 
+            
+            &__account{
+
+                @include mixin.flex(space-between , center , row);    
+                cursor: pointer;
+                border-radius: 0 !important;
+                
+                &:hover{
+                    background-color: variables.$section-hover-bgc !important;      
+                }
+
+                &.active{
+                    background-color: variables.$section-select-bgc !important;
+
+                    &:hover{
+
+                        background-color: variables.$section-select-bgc !important;
+                        
+                    }
+
+                }
+
+                
+                &__info{
+                    
+                    @include mixin.flex(space-between , center , row);
+
+                    &__img{
+    
+                        border-radius: 50%;
+                        width: function.rem(52);
+        
+                    }
+
+                    &__name{
+                        margin-bottom: 0;
+                        font-size: function.rem(14);
+                        color: variables.$profile-color;
+                    }
+
+                    &__bio{
+
+                        margin-bottom: 0;
+                        font-size: function.rem(13);
+                        color: variables.$profile-bio-color;
+
+                    }
+
+                }
+
+            }
+        }
+
+        
+    }
+
+    &__left{
+        height: 100%;
+
+
+        &__receiver__account__info{
+
+            padding: function.rem(20) function.rem(17);
+            border-bottom: 1px solid variables.$section-border;
+            border-top: 1px solid variables.$section-border;
+            @include mixin.flex(right, center , row);
+
+            @include breakpoint.respond-to("sm"){
+        
+                border-top: none;
+        
+            }
+
+            
+            &__img{
+                
+                width: function.rem(24);
+                border-radius: 50%;
+                
+            }
+            
+            &__name{
+                
+                color: variables.$profile-color;
+                display: inline-block;
+                margin-right: function.rem(10);
+                margin-bottom: 0;
+                font-weight: 500;
+
+            }
+            
+        }
+
+        &__messages{
+
+            padding: function.rem(16) function.rem(20);
+            @include mixin.flex(start , unset , column);
+            height: calc(100% - 136px);
+            overflow: auto;
+
+            &.active{
+
+                @include mixin.flex(start , unset , column);
+
+            }
+
+            &__time{
+
+                align-self: center;
+                margin-bottom: function.rem(19);
+                font-size: function.rem(12);
+                color: variables.$profile-bio-color;
+
+            }
+
+            &__sended-message{
+
+                align-self: flex-start;
+                margin-bottom: function.rem(19);
+
+                &--text{
+
+                    @include mixin.text-message;
+
+                }
+
+                &--img{
+
+                    @include mixin.image-message;
+
+                }
+
+            }
+
+            &__received-message{
+
+                align-self: flex-end;
+                margin-bottom: function.rem(19);
+                
+                &--text{
+
+                    @include mixin.text-message;
+
+                }
+
+                &--img{
+
+                    @include mixin.image-message;
+
+                }
+            }
+
+
+        }
+
+        &__text-box{
+
+            @include mixin.flex(space-between , center , row);
+            margin: function.rem(16) function.rem(13) function.rem(16) function.rem(13);
+            padding: function.rem(8) function.rem(10);
+            border: 1px solid variables.$section-border;
+            border-radius: function.rem(20);
+            
+            @include breakpoint.respond-to("sm"){
+                
+                margin: function.rem(16) function.rem(16) 0 function.rem(16);
+        
+            }
+
+
+            &__emoji{
+                position: relative;
+
+                &__emoji-picker{
+                    display: none;
+                    position: absolute;
+                    bottom: function.rem(43);
+
+                    &--show{
+
+                        display: flex;
+
+                    }
+
+                }
+                
+            }
+
+
+            &__text-input{
+
+                all: unset;
+                flex-grow: 2;
+                margin: 0 function.rem(20);
+
+            }
+
+            &__send{
+
+                all: unset;
+                color: variables.$main-btn-color;
+                font-size: function.rem(15);
+                font-weight: 500;
+                display: none;
+                margin-right: function.rem(9);
+            }
+
+            svg{
+                cursor: pointer;
+            }
+
+        }
+    }
+
+}
+
+emoji-picker {
+    width: function.rem(340);
+    height: function.rem(300);
+}

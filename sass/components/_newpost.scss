@@ -1,0 +1,289 @@
+@use "../abstracts/functions" as function;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixin;
+@use "../layout/breakpoints" as breakpoint;
+
+
+.addpost{
+
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0 , 0 , 0 , 0.6);
+    z-index: 5;
+    display: none;
+    padding: 1rem;
+
+    &__close-btn{
+    
+        
+        margin-top: function.rem(20);
+        margin-right: function.rem(20);
+        cursor: pointer;
+        display: inline-block;
+    
+    }
+
+    &__modal-wrapper{
+
+        margin: function.rem(13) auto function.rem(5) auto;
+        max-width: function.rem(718);
+        background-color: #fff;
+        border-radius: function.rem(20);
+        color: variables.$profile-color;
+        overflow: hidden;
+
+
+        &--bigger{
+
+            max-width: function.rem(1100);
+            height: max-content;
+            max-height: 86%;
+            overflow: auto;
+
+        }
+        
+        
+        &__panel{
+            
+            display: none;
+
+            &--active{
+                display: block;
+            }
+            
+        }
+        
+        
+
+        &__section{
+
+            padding: function.rem(10) 0;
+
+            &--title{
+
+                @include mixin.flex(center , center , column);
+                position: sticky;
+                top: 0;
+                background-color: #fff;
+                z-index: 60;
+
+                P{
+
+                    margin-bottom: 0;
+                    font-weight: 500;
+
+                }
+
+                padding-bottom: 0;
+
+            }
+
+
+            
+
+
+            &--select-file{
+                height: 50%;
+                @include mixin.flex(center , center , column);
+
+
+                &__default{
+
+                    @include mixin.default-message;
+
+                }
+
+                &__select-file-btn{
+
+                    all: unset;
+                    background-color: variables.$main-btn-color !important;
+                    padding: function.rem(4) function.rem(13);
+                    font-size: function.rem(14);
+                    color: #fff !important;
+                    border-radius: function.rem(10) !important;
+                    margin-top: function.rem(8);
+                    cursor: pointer;
+
+                }
+            }
+
+
+            &--post-setting{   
+                padding: 0;
+
+                &__preview{
+
+                    max-height: function.rem(800);
+                    overflow: auto;
+
+                    &__slider{
+                        
+                        display: none;
+
+                        &__slide{
+                            background-color: variables.$section-hover-bgc;
+
+                            &__img{
+                                object-fit: cover;
+                            }
+
+                            &__img , &__video{
+                                max-height: function.rem(704);
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                        }
+
+                    }
+
+                    &__single{
+
+                        @include mixin.flex(center , center , row);
+                        display: none;
+
+                        &__img{
+
+                            @extend .addpost__modal-wrapper__section--post-setting__preview__slider__slide__img;
+
+                        }
+                        
+                        &__video{
+                            
+                            max-height: function.rem(704);
+                            width: 100%;
+                            height: 100%;
+                            display: none;
+
+                        }
+
+                    }
+
+                }
+
+                &__options{
+
+                    height: 100%;
+                    border-top: 1px solid rgba(variables.$profile-color , 0.25);
+                    border-radius: none;
+                    
+                    
+                    @include breakpoint.respond-to(md){
+                        
+                        border-top: none;
+                        border-right: 1px solid rgba(variables.$profile-color , 0.25);
+
+                    }
+
+                    &__account{
+
+                        padding: function.rem(16);
+
+                        &__img{
+
+                            border-radius: 50%;
+                            width: function.rem(29);
+                            margin-left: function.rem(7);
+
+                        }
+
+                        &__username{
+
+                            font-weight: 500;
+                            font-size: function.rem(15);
+
+                        }
+
+                    }
+
+                    &__caption{
+
+                        padding: 0 function.rem(16);
+                        max-height: function.rem(200);
+                        height: 100%;
+                        @include mixin.flex(unset , unset , column);
+
+                        textarea{
+                            border: none;
+                            outline: none;
+                            resize: none;
+                            flex-grow: 2;
+                        }
+
+                        
+                    }
+
+                    &__picker{
+
+                        position: relative;
+
+                        svg{
+
+                            cursor: pointer;
+
+                        }
+                        
+                        emoji-picker{
+
+                            max-height: function.rem(300);
+                            width: 100%;
+                            position: absolute;
+                            display: none;
+                            z-index: 50;
+                            inset: function.rem(36) 0 0 function.rem(18);
+                            
+                            @include breakpoint.respond-to(md){
+                                
+                                width: function.rem(340);
+                                right: function.rem(-370);
+                                top: function.rem(-240);
+
+                            }
+                            
+                        }
+                        
+                        &--active{
+                            
+                            display: block !important;
+
+                        }
+
+                    }
+
+                    &__submit-btn{
+
+                        all: unset;
+                        background-color: #1877f2;
+                        padding: function.rem(5) function.rem(10);
+                        color: #fff;
+                        border-radius: function.rem(7);
+                        font-size: function.rem(14);
+                        cursor: pointer;
+                        display: block;
+                        margin-top: function.rem(10);
+                        margin: auto;
+                        width: 91%;
+                        text-align: center;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+
+        &__divider{
+
+            margin-top: function.rem(10);
+            margin-bottom: 0;
+            width: 100%;
+
+        }
+
+
+
+    }
+    
+}

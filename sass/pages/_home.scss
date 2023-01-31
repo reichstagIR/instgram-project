@@ -1,0 +1,504 @@
+@use "../abstracts/functions" as function;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixin;
+@use "../layout/breakpoints" as breakpoint;
+
+$link-color: rgb(0, 55, 107);
+
+.home__right-side{
+
+    padding: function.rem(20) 0;
+
+    &__current-account{
+
+
+        
+        @include mixin.flex(space-between , center , row);
+
+        &__right{
+
+            @include mixin.flex(center , center , row);
+
+
+            img{
+                width: function.rem(60);
+                border-radius: 50%;
+            }
+
+            &__info{
+
+
+                margin-right: function.rem(19);
+
+                &__username{
+                    margin-bottom: 0;
+                    color: variables.$profile-color;
+                    font-weight: 600;
+                }
+
+                &__bio{
+                    margin-bottom: 0;
+                    color: variables.$profile-bio-color;
+                }
+
+            }
+
+        }
+
+        &__left{
+
+            &__btn{
+                @include mixin.suggest-btn;
+            }
+
+        }
+
+
+    }
+
+    &__suggest-title{
+        color: variables.$profile-bio-color;
+        font-size: function.rem(15);
+        font-weight: 600;
+        margin: function.rem(13) 0;
+    }
+
+    &__suggests{
+
+        
+        &__account{
+            
+            @extend .home__right-side__current-account;
+
+            &:not(&__account:last-child , &__account:first-child){
+                margin: function.rem(13) 0;
+            }
+
+            &__right{
+
+                img{
+                    width: function.rem(40);
+                }
+
+                @extend .home__right-side__current-account__right;
+
+                &__info{
+
+                    @extend .home__right-side__current-account__right__info;
+
+                    &__username{
+
+                        @extend .home__right-side__current-account__right__info__username;
+
+                    }
+
+                    &__bio{
+
+                        @extend .home__right-side__current-account__right__info__bio;
+
+                    }
+
+                }
+
+            }
+            
+            &__left{
+
+                &__btn{
+                    @include mixin.suggest-btn;
+                }
+
+            }
+        }
+
+    }
+
+}
+
+.home__left-side{
+
+    margin-right: 0;
+
+    @include breakpoint.respond-to(lg){
+        margin-right: function.rem(19);
+    }
+
+    &__story-slider{
+
+        @include mixin.home-sections(function.rem(13) function.rem(10));
+
+        &__slider{
+            width: 100%;
+            height: function.rem(100);
+
+            &__item{
+
+                @include mixin.flex(center , center , column);
+
+                &:hover{
+                    color: inherit;
+                }
+
+                &__img{
+
+                    width: function.rem(47);
+                    border-radius: 50%;
+                    @include mixin.story-border(2px , 2px);
+
+                    &--visited{
+                        @include mixin.visited-story-border(2px , 2px);
+                    }
+
+                }
+
+
+                &__page-name{
+                    margin-top: function.rem(9);
+                    margin-bottom: 0;
+                    font-size: function.rem(15);
+                    direction: ltr;
+                }
+
+            }
+
+        }
+
+    }
+
+    &__new-posts{
+        margin-top: function.rem(14);
+        
+
+        &__post{
+
+            @include mixin.home-sections(0);
+            margin: function.rem(26) 0;
+
+            &__header{
+
+                @include mixin.flex(space-between , center , row);
+                padding: function.rem(13) function.rem(19);
+
+                img{
+
+                    width: function.rem(40);
+                    border-radius: 50%;
+                }
+
+                &__profile-info{
+
+                    margin-right: function.rem(13);
+
+                    &__page-name{
+
+                        margin-bottom: 0;
+                        color: variables.$profile-color;
+                        cursor: pointer;
+
+                        &:hover{
+                            color: variables.$profile-bio-color;
+                        }
+                    }
+
+                    &__page-location{
+
+                        margin-bottom: 0;
+                        font-size: function.rem(13);
+
+                    }
+
+                }
+
+
+            }
+
+            &__body{
+                position: relative;
+
+                img{
+                    width: 100%;
+                    height: auto;
+                }
+
+                video{
+                    width: 100%;
+                }
+
+                &__post-slider{
+
+                    &__bullet-btn{
+
+                        background-color: #fff;
+                        opacity: 0.5;
+                        display: inline-block;
+                        width: function.rem(9);
+                        height: function.rem(9);
+                        margin: 0 function.rem(3);
+                        border-radius: 50%;
+
+                        &--active{
+                            opacity: 1;
+                        }
+                    }
+
+                    &__bullet-btn-navigation-prev{
+
+                        @include mixin.custom-navigation-prev(#fff);
+                    }
+
+                    &__bullet-btn-navigation-next{
+                        @include mixin.custom-navigation-next(#fff);
+
+                    }
+
+                }
+
+                &__pause-icon{
+
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50% , -50%);
+                    color: #fff;
+                    opacity: 0.9;
+                    font-size: function.rem(75);
+                    display: block;
+                }
+
+                &__sound{
+
+                    position: absolute;
+                    bottom: function.rem(16);
+                    right: function.rem(20);
+                    cursor: pointer;
+                    background-color: variables.$profile-color;
+                    width: function.rem(30);
+                    height: function.rem(30);
+                    @include mixin.flex(center , center , row);
+                    border-radius: 50%;
+
+                    i{
+
+                        
+                        color: #fff;
+
+                    }
+
+                    &__on{
+                        display: block;
+                    }
+
+                    &__off{
+                        display: none;
+                    }
+
+
+                    &--active{
+
+                        i:first-child{
+                            display: none;
+                        }
+
+                        i:last-child{
+                            display: block;
+                        }
+
+                    }
+
+
+                }
+
+            }
+
+            &__footer{
+
+                padding: function.rem(13) function.rem(7);
+
+                &__actions{
+
+                    @include mixin.flex(space-between , center , row);
+
+                    &__item{
+                        margin: 0 function.rem(6);
+
+                        &--like{
+
+                            svg:first-child{
+                                display: none !important;
+                            }
+                            svg:last-child{
+                                display: inline-block !important;
+                            }
+
+                        }
+
+                        &--saved{
+
+                            svg:first-child{
+                                display: none !important;
+                            }
+                            svg:last-child{
+                                display: inline-block !important;
+                            }
+
+                        }
+
+                        svg{
+                            width: function.rem(27);
+                            height: function.rem(27);
+
+                            &:hover{
+                                color: variables.$profile-bio-color;
+                            }
+
+                        }
+                    }
+
+                }
+
+                &__likes-count{
+
+                    color: variables.$profile-color;
+                    font-weight: 500;
+                    display: block;
+                    margin: function.rem(10) 0;
+
+                }
+
+                &__dec{
+
+                    height: function.rem(28);
+                    overflow: hidden;
+                    
+                    &__text{
+
+                        color: variables.$profile-color;
+                    
+                        &__account-name{
+                            color: variables.$profile-color;
+                            font-weight: 600;
+                        }
+
+                        &__more{
+
+                            color: variables.$profile-bio-color;
+                            cursor: pointer;
+                        }
+
+
+                        &__link{
+
+                            color: $link-color;
+
+                            &:hover{
+                                color: $link-color;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                &__dec--open{
+                    height: auto !important;
+                }
+
+                &__comment-count{
+
+                    color: variables.$profile-bio-color;
+                    margin: function.rem(8) 0;
+
+                    &:hover{
+                        color: variables.$profile-bio-color;
+                    }
+
+                }
+
+                &__time-ago{
+                    color: variables.$profile-bio-color;
+                    font-size: function.rem(12);
+                    margin: function.rem(7) 0;
+                }
+
+            }
+
+        }
+
+    }
+
+    &__suggest-account{
+
+        margin-top: function.rem(24);
+        @include mixin.home-sections(16 9);
+
+        &__title{
+
+            font-weight: 500;
+            margin-bottom: 0;
+            font-size: function.rem(17);
+
+        }
+
+        &__slider{
+
+            margin-top: function.rem(20);
+
+            &__slide{
+
+                @include mixin.home-sections(18 9);
+                border-radius: function.rem(5);
+                @include mixin.flex(center , center , column);
+                
+
+                &__img{
+                    border-radius: 50%;
+                    width: function.rem(44);
+                }
+
+                &__profile-name{
+                    margin-top: function.rem(18);
+                    margin-bottom: function.rem(9);
+                    font-weight: 500;
+                    font-size: function.rem(15);
+                    margin-bottom: 0;
+                }
+
+                &__sub-text{
+
+                    margin-bottom: function.rem(13);
+                    font-size: function.rem(15);
+                    color: variables.$profile-bio-color;
+
+                }
+
+                &__btn-follow{
+
+                    all: unset;
+                    background-color: variables.$main-btn-color;
+                    padding: function.rem(7) function.rem(12);
+                    color: #fff;
+                    border-radius: function.rem(10);
+                    font-size: function.rem(15);
+
+                }
+
+            }
+
+            &__bullet-btn-navigation-prev{
+
+                @include mixin.custom-navigation-next(#000 , #fff);
+
+            }
+
+            &__bullet-btn-navigation-next{
+
+                @include mixin.custom-navigation-prev(#000 , #fff);
+
+            }
+
+        }
+
+    }
+
+}

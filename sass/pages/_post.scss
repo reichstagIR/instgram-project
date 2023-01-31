@@ -1,0 +1,404 @@
+@use "../abstracts/functions" as function;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixin;
+@use "../layout/breakpoints" as breakpoint;
+
+
+
+$post-link-color: rgb(0,55,107);
+
+.post{
+
+    @include mixin.home-sections(0);
+    border-radius: function.rem(5);
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: function.rem(50);
+    
+    @include breakpoint.respond-to(sm){
+        margin-right: function.rem(80);
+        margin-left: function.rem(80);
+    }
+
+    &__right{
+        &__account{
+
+            @include mixin.flex(space-between , center , row);
+            padding: function.rem(10) function.rem(13);
+
+            &__img{
+
+                width: function.rem(40);
+                border-radius: 50%;
+
+            }
+
+            &__username{
+
+                font-size: function.rem(15);
+                font-weight: 500;
+                margin-right: function.rem(10);
+
+            }
+
+            svg{
+                cursor: pointer;
+            }
+
+        }
+
+        &__comments{
+
+            padding: function.rem(10) function.rem(13);
+            overflow: auto;
+
+            &::-webkit-scrollbar{
+                display: none
+            }
+
+            &__comment{
+
+                @include mixin.flex(unset , flex-start , row);
+                margin: function.rem(20) 0;
+
+                &__img{
+
+                    width: function.rem(38);
+                    border-radius: 50%;
+                    margin-left: function.rem(10);
+
+                }
+
+                &__username{
+
+                    font-size: function.rem(14);
+                    font-weight: 500;
+
+                }
+
+                &__message{
+
+                    font-size: function.rem(14);
+                    color: variables.$profile-color;
+                    margin-bottom: 0;
+                    margin-top: function.rem(5);
+
+                    &__link{
+
+                        color: $post-link-color;
+
+                        &:hover{
+
+                            color: $post-link-color;
+
+                        }
+
+                    }
+
+                }
+
+
+                &__like{
+
+                    cursor: pointer;
+
+                    svg:first-child{
+
+                        display: block;
+
+                    }
+
+                    svg:last-child{
+
+                        display: none;
+
+                    }
+
+                    &--active{
+
+                        svg:first-child{
+
+                            display: none;
+    
+                        }
+    
+                        svg:last-child{
+    
+                            display: block;
+    
+                        }
+
+                    }
+
+                }
+
+                &__action{
+
+                    color: variables.$profile-bio-color;
+                    font-size: function.rem(14);
+
+                    &:hover{
+                        color: variables.$profile-bio-color;
+                    }
+
+                }
+
+                &--replay{
+
+                    margin-right: function.rem(40);
+
+                }
+
+            }
+
+        }
+
+        &__actions{
+
+            padding: function.rem(8) function.rem(13);
+            @include mixin.flex(space-between , center , row);
+
+            svg{
+                cursor: pointer;
+            }
+
+
+            &__like{
+
+                svg:first-child{
+
+                    display: block;
+    
+                }
+    
+                svg:last-child{
+    
+                    display: none;
+    
+                }
+                
+                &--active{
+    
+                    svg:first-child{
+    
+                        display: none;
+        
+                    }
+        
+                    svg:last-child{
+        
+                        display: block;
+        
+                    }
+    
+                }
+            }
+        
+            
+            &__save{
+                
+                svg:first-child{
+                    
+                    display: block;
+                    
+                }
+    
+                svg:last-child{
+                    
+                    display: none;
+                    
+                }
+                
+                &--active{
+                    
+                    svg:first-child{
+    
+                        display: none;
+                        
+                    }
+                    
+                    svg:last-child{
+                        
+                        display: block;
+                        
+                    }
+                    
+                }
+                
+            }
+            
+            
+        }
+        
+        &__info{
+
+            padding: function.rem(8) function.rem(13);
+
+            &__like{
+
+                font-weight: 500;
+                font-size: function.rem(14);
+                display: block;
+
+            }
+
+            &__date{
+
+                font-size: function.rem(13);
+                color: variables.$profile-bio-color;
+                display: block;
+                margin-top: function.rem(5);
+
+            }
+
+        }
+
+        &__send{
+
+            padding: function.rem(8) function.rem(13);
+            @include mixin.flex(space-between , center , row);
+
+            &__input{
+
+                all: unset;
+                flex-grow: 2;
+                margin: 0 function.rem(9);
+                font-size: function.rem(14);
+
+            }
+
+            &__btn{
+
+                all: unset;
+                font-size: function.rem(14);
+                color: variables.$main-btn-color;
+
+            }
+
+            &__emoji-wrapper{
+
+                position: relative;
+                cursor: pointer;
+
+                &__emoji-picker{
+    
+                    position: absolute;
+                    z-index: 999;
+                    width: function.rem(320);
+                    bottom: function.rem(30);
+                    display: none;
+
+                    &--show{
+                        display: block;
+                    }
+    
+                }
+                
+            }
+            
+        }
+
+    }
+
+    &__left{
+
+        @include mixin.flex(center , center , row);
+        background-color: #000;
+        
+
+        &__img{
+
+            height: max-content;
+
+        }
+
+        &__video{
+
+            width: 100%;
+            height: 100%;
+            min-height: function.rem(450);
+
+        }
+
+
+        &__swiper{
+
+            position: relative;
+
+            &__slide{
+
+                height: auto;
+                @include mixin.flex(center , center , row);
+
+            }
+
+            &__video{
+
+                
+                &__slide{
+
+                    
+                    &__play{
+
+                        z-index: 8;
+                        @include mixin.translate-center(both);
+                        color: #fff;
+                        font-size: function.rem(75);
+                        opacity: 0.9;
+
+                    }
+
+                    &__sound{
+
+                        position: absolute;
+                        bottom: function.rem(16);
+                        right: function.rem(20);
+                        cursor: pointer;
+                        background-color: variables.$profile-color;
+                        width: function.rem(30);
+                        height: function.rem(30);
+                        @include mixin.flex(center , center , row);
+                        border-radius: 50%;
+                        z-index: 8;
+
+                        i{
+                            color: #fff;
+                        }
+    
+                        i:first-child{
+                            display: block;
+                        }
+    
+                        i:last-child{
+                            display: none;
+                        }
+    
+
+                        &--active{
+
+                            i:first-child{
+                                display: none;
+                            }
+        
+                            i:last-child{
+                                display: block;
+                            }
+        
+                        }
+
+                    }
+
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+.post__left__video-wrapper{
+    position: relative;
+}

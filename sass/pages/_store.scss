@@ -1,0 +1,310 @@
+@use "../abstracts/functions" as function;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixin;
+@use "../layout/breakpoints" as breakpoint;
+
+
+
+$paginate-color: rgb(110, 110, 110);
+
+.store{
+
+    background-color: variables.$store-bgc;
+    height: 100vh;
+    @include mixin.flex(center , center , row);
+
+
+    &__card{
+
+
+        height: max-content;
+        max-height: 93%;
+        max-width: function.rem(473);
+        width: 70%;
+        margin: function.rem(16);
+        background-color: rgba(variables.$store-bgc , 0.5);
+        border-radius: function.rem(8);
+        overflow: hidden;
+        position: relative;
+        
+        &__top-shadow{
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient( 180deg, rgba(38, 38, 38, .8) 0%, rgba(38, 38, 38, 0) 100% );
+            z-index: 50;
+            height: function.rem(150);
+
+        }
+
+        &__bottom-shadow{
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient( 180deg, rgba(38, 38, 38, .8) 0%, rgba(38, 38, 38, 0) 100% );
+            transform: rotate(180deg);
+            z-index: 50;
+            height: function.rem(100);
+
+        }
+
+        &__pagination{
+            
+            @include mixin.flex(center , center , row);
+            height: function.rem(2);
+            position: absolute;
+            top: function.rem(18);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            z-index: 909;
+            
+            &__btn{
+                
+                background-color: $paginate-color;
+                width: 100%;
+                height: 100%;
+                margin: 0 function.rem(3);
+                position: relative;
+
+                &__status{
+
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 0;
+                    background-color: #fff;
+
+                    &--0{
+                        width: 100%;
+                    }
+
+                }
+
+            }
+
+        }
+
+        &__info{
+
+            position: absolute;
+            z-index: 999;
+            width: 94%;
+            left: function.rem(10);
+            top: function.rem(30);
+            text-align: center;
+            @include mixin.flex(space-between , center , row);
+
+            &__name{
+
+                &__img{
+
+                    width: function.rem(30);
+                    border-radius: 50%;
+    
+                }
+
+                &__username{
+
+                    color: #fff;
+                    margin: 0 function.rem(5);
+                    font-size: function.rem(15);
+
+                }
+
+                &__date{
+
+                    color: variables.$profile-bio-color;
+                    font-weight: 500;
+                    font-size: function.rem(15);
+
+                }
+
+
+
+            }
+
+            &__actions{
+
+                svg{
+                    cursor: pointer;
+                }
+                @include mixin.flex(center , center , row);
+
+                &__pause{
+
+                    svg:first-child{
+
+                        display: none;
+
+                    }
+
+                    svg:last-child{
+
+                        display: block;
+
+                    }
+
+                    &--true{
+
+                        svg:first-child{
+
+                            display: block;
+    
+                        }
+    
+                        svg:last-child{
+    
+                            display: none;
+    
+                        }
+
+                    }
+
+                }
+
+                &__mute{
+
+                    margin-right: function.rem(9);
+
+                    svg:first-child{
+
+                        display: block;
+                        
+
+                    }
+
+                    svg:last-child{
+
+                        display: none;
+
+
+                    }
+
+                    &--true{
+
+                        svg:first-child{
+
+                            display: none;
+    
+                        }
+    
+                        svg:last-child{
+    
+                            display: block;
+    
+                        }
+
+                    }
+
+                }
+
+                &__menu{
+
+                    margin-right: function.rem(9);
+
+                }
+
+            }
+
+        }
+
+        &__slider{
+
+
+
+
+
+
+            &__slide{
+
+                &__img{
+        
+                    width: 100%;
+                    object-fit: cover;
+        
+                }
+
+                &__video{
+
+                    width: 100%;
+
+                }
+
+                
+
+            }
+        }
+
+        &__box{
+
+            position: absolute;
+            bottom: function.rem(15);
+            right: 0;
+            left: 0;
+            z-index: 999;
+            @include mixin.flex(center , center , row);
+
+            &__wrapper{
+
+                width: 90%;
+                padding: function.rem(9) function.rem(6);
+                border: 0.1rem solid variables.$section-border;
+                border-radius: function.rem(25);
+
+                @include mixin.flex(space-between , center , row);
+                
+                svg{
+
+                    margin-left: function.rem(10);
+                    cursor: pointer;
+
+                }
+
+                &__submit{
+
+                    all: unset;
+                    margin-left: function.rem(10);
+                    color: variables.$section-border;
+                    display: none;
+
+                }
+
+                &__input{
+
+                    all: unset;
+                    width: 100%;
+                    caret-color: variables.$section-border;
+                    color: variables.$section-border;
+                    font-size: function.rem(15);
+
+                    &::placeholder{
+
+                        color: variables.$section-border;
+                        font-size: function.rem(15);
+                    }
+
+                }
+
+
+
+            }
+
+        }
+
+
+    }
+
+}
+
+
+.home__left-side__new-posts__post__body__post-slider__bullet-btn-navigation__disable{
+
+    opacity: 0.3 !important;
+    
+}

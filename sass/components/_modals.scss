@@ -1,0 +1,247 @@
+@use "../abstracts/mixins" as mixing;
+@use "../abstracts/functions" as function;
+@use "../abstracts/variables" as variables;
+
+
+$red-btn-color: #ed4956;
+$btn-active: #e5e5e5;
+$selected-users-bgc: #e0f1ff;
+$selected-users-color: rgb(0, 149, 246);
+
+
+.modal-bgc{
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0 , 0 , 0 , 0.6);
+    z-index: 999; 
+    display: none;
+    align-items: center;
+    justify-content: center;
+    
+
+    .modal-wrapper{
+
+        //public class
+
+        @include mixing.flex(center , center , column);
+        margin: 0 function.rem(10);
+        width: 100%;
+        max-width: function.rem(450);
+        background-color: #fff;
+        text-align: center;
+        border-radius: function.rem(13);
+        overflow: hidden;
+
+
+        &__modal-section{
+            @include mixing.flex(unset , start , row);
+        }
+
+        &__modal-divider{
+            
+            width: 100%;
+            height: function.rem(2);
+            margin: function.rem(10) 0;
+        }
+
+        &__modal-title{
+
+            font-size: function.rem(18);
+            font-weight: 500;
+            margin-top: function.rem(10);
+            margin-bottom: 0;
+
+        }
+
+        &--share-modal{
+
+            position: relative;
+            max-width: function.rem(600);
+
+            &__modal-section {
+
+                align-self: flex-start;
+
+                &__receiver{
+        
+                    @extend .modal-wrapper__modal-title;
+                    padding-right: function.rem(16);
+                    margin-top: 0;
+        
+                }
+                
+
+                &__selected-items{
+                    flex-wrap: wrap;
+                    @include mixing.flex(unset , center , row);
+                    margin-right: function.rem(15);
+
+                    &__selected-item{
+            
+                        @include mixing.flex(space-between , center , row);
+                        background-color: $selected-users-bgc;
+                        padding: function.rem(5) function.rem(10);
+                        border-radius: function.rem(10);
+                        margin: 0 function.rem(5);
+            
+                        &__username{
+                            margin-bottom: 0;
+                            margin-left: function.rem(9);
+                            color: $selected-users-color;
+                        }
+            
+                        svg{
+                            cursor: pointer;
+                        }
+
+                    }
+
+                    &__form{
+            
+                        @include mixing.flex(center , center , row);
+                        margin: function.rem(5);
+            
+                        input{
+                            border: none;
+                            outline: none;
+                        }
+            
+                    }
+                }
+
+            }
+
+            &__accounts-section{
+
+                height: function.rem(213);
+                overflow-y: auto;
+                @include mixing.flex(unset , unset , column);
+                width: 100%;
+
+                &__account{
+        
+                    @include mixing.flex(space-between , center , row);
+                    width: 100%;
+                    padding: function.rem(9) function.rem(16);
+        
+                    &:hover{
+                        background-color: rgba(variables.$section-border , 0.3);
+                    }
+        
+                    div{
+                        @include mixing.flex(space-between , center , row);
+        
+                        img{
+                            width: function.rem(43);
+                            border-radius: 50%;
+                        }
+        
+                        div{
+                            margin-right: function.rem(14);
+                            @include mixing.flex(unset , start , column);
+
+                            p:first-child{
+
+                                margin-bottom: 0;
+                                font-size: function.rem(15);
+                                font-weight: 500;
+
+                            }
+
+                            p:last-child{
+                                margin-bottom: 0;
+                                font-size: function.rem(14);
+                                color: variables.$profile-bio-color;
+
+                            }
+
+                        }
+                        svg{
+                            cursor: pointer;
+                        }
+                        
+                        
+                    }
+
+
+                    &__svg--active{
+            
+                        svg:first-child{
+                            display: none !important;
+                        }
+                        svg:last-child{
+                            display: inline-block !important;
+                        }
+        
+                    }
+
+
+    
+
+
+                }
+
+            }
+
+
+
+
+
+        }
+
+        
+        &__btn-send{
+
+            width: 95%;
+            padding: function.rem(11) 0;
+            margin-bottom: function.rem(10);
+
+        }
+
+        &__btn{
+
+            padding: function.rem(13) 0;
+            display: block;
+            width: 100%;
+
+            &:not(:first-child){
+
+                border-top: 1px solid variables.$section-border;
+
+            }
+
+            &--red{
+
+                font-weight: 600;
+                color: $red-btn-color;
+
+            }
+
+            &--blue{
+
+                font-weight: 600;
+                color: $selected-users-color;
+
+            }
+
+            &:active{
+                background-color: $btn-active;
+            }
+
+        }
+
+
+        &__btn-close-icon{
+
+            position: absolute;
+            top: function.rem(10);
+            right: function.rem(10);
+            cursor: pointer;
+
+        }
+
+
+
+    }
+
+}

@@ -1,0 +1,174 @@
+@use "../abstracts/functions" as function;
+@use "../abstracts/variables" as variable;
+
+
+//public
+
+@mixin flex ($justify , $align , $dir) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $dir;
+}
+
+
+@mixin translate-center ($axis , $another...) {
+    
+    position: absolute;
+    left: 50%;
+    
+    @if $axis == both {
+        transform: translate(-50% , -50%) $another;
+        top: 50%;
+    }@else if $axis == y {
+        transform: translateY(-50%) $another;
+    }@else if $axis == x {
+        transform: translateX(-50%) $another;
+    }
+    
+    
+}
+
+//home
+
+@mixin story-border ($with , $offset){
+
+    outline: $with solid variable.$story-border;
+    outline-offset: $offset;
+
+}
+
+
+@mixin visited-story-border ($with , $offset){
+
+    outline: $with solid variable.$visited-story-border;
+    outline-offset: $offset;
+    
+}
+
+@mixin suggest-btn {
+
+    color: rgb(0, 149, 246);
+    font-size: function.rem(15);
+    &:hover{
+        color: rgb(0, 149, 246)
+    }
+
+}
+
+@mixin home-sections ($padding) {
+
+    background-color: #fff;
+    border-radius: function.rem(15);
+    border: 1px solid variable.$section-border;
+    padding: $padding;
+
+}
+
+//slider
+
+@mixin custom-navigation-next($bgc , $icon-color : #000){
+
+    @include flex(center , center , row);
+
+    width: function.rem(24);
+    height: function.rem(24);
+    left: function.rem(10);
+    right: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $bgc;
+    opacity: 0.7;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
+    
+    i{
+        margin-right: function.rem(3);
+        color: $icon-color;
+    }
+
+}
+
+@mixin custom-navigation-prev($bgc , $icon-color : #000){
+
+    @include flex(center , center , row);
+    
+    width: function.rem(24);
+    height: function.rem(24);
+    right: function.rem(10);
+    left: auto;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $bgc;
+    opacity: 0.7;
+    border-radius: 50%;
+    z-index: 2;
+
+    i{
+        margin-left: function.rem(3);
+        color: $icon-color;
+    }
+
+}
+
+
+//directs
+
+@mixin text-message{
+
+    padding: function.rem(12) function.rem(15);
+    background-color: variable.$section-select-bgc;
+    border-radius: function.rem(20);
+
+    p{
+
+        margin-bottom: 0;
+        font-size: function.rem(14);
+
+    }
+
+}
+
+@mixin image-message{
+
+    width: 40%;
+    
+    
+    img{
+        
+        width: 100%;
+        border-radius: function.rem(20);
+
+    }
+
+}
+
+
+@mixin default-message{
+
+
+    text-align: center;
+    margin-top: function.rem(50);
+
+    p:nth-child(2){
+
+        font-size: function.rem(19);
+        margin-top: function.rem(6);
+        margin-bottom: function.rem(7);
+
+    }
+
+    p:nth-child(3){
+
+        margin-top: function.rem(5);
+        font-size: function.rem(14);
+        color: variable.$profile-bio-color;
+        direction: ltr;
+
+    }
+
+}

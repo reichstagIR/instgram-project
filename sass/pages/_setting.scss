@@ -1,0 +1,167 @@
+@use "../abstracts/functions" as function;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixin;
+@use "../layout/breakpoints" as breakpoint;
+
+
+.setting{
+
+    @include mixin.home-sections(0);
+    margin-top: function.rem(50);
+    border-radius: function.rem(3);
+
+    &__right{
+
+        flex-wrap: nowrap;
+        flex-direction: column;
+
+        &__link{
+
+            color: variables.$profile-color;
+            position: relative;
+            text-align: right;
+            padding-top: function.rem(14);
+            padding-bottom: function.rem(14);
+            font-size: function.rem(15);
+
+            &::before{
+                content: '';
+                position: absolute;
+                width: function.rem(2);
+                right: 0;
+                top: 0;
+                background-color: #000;
+            }
+
+            &:hover{
+
+                background-color: variables.$section-hover-bgc;
+                color: variables.$profile-color;
+
+            }
+
+            &:active{
+
+                background-color: variables.$section-hover-bgc;
+                color: variables.$profile-color;
+
+            }
+
+
+        }
+
+    }
+
+    &__left{
+
+        &__wrapper{
+
+            @include mixin.flex(center , start , row);
+            padding: function.rem(26) 0;
+
+
+            &__group{
+
+                @include mixin.flex(start , start , row);
+                margin-bottom: function.rem(26);
+
+                &__img{
+
+                    width: function.rem(50);
+                    border-radius: 50%;
+                    margin-left: function.rem(45);
+                    margin-right: function.rem(34);
+                    cursor: pointer;
+
+                }
+
+                &__username{
+
+                    flex-grow: 1;
+                    font-size: function.rem(15);
+
+                }
+
+                label{
+
+                    max-width: function.rem(103);
+                    width: 100%;
+                    font-weight: 500;
+
+                }
+
+                &__input{
+
+                    width: 100%;
+                    border: 1px solid variables.$section-border;
+                    border-radius: function.rem(3);
+                    padding: function.rem(2) function.rem(4);
+                    outline: none;
+
+                    @include breakpoint.respond-to(sm){
+
+                        width: 65%
+
+                    }
+
+                }
+
+                &__textarea{
+
+                    @extend .setting__left__wrapper__group__input;
+
+                }
+
+                &__btn-submit{
+
+                    all: unset;
+                    background-color: #1877f2;
+                    padding: 0.3125rem 0.625rem;
+                    color: #fff;
+                    border-radius: 0.4375rem;
+                    font-size: 0.875rem;
+                    cursor: pointer;
+
+                }
+
+
+            }
+
+        }
+
+    }
+
+}
+
+.setting__right .active{
+
+    background: none !important;
+    font-weight: 500 !important;
+    color: variables.$profile-color !important;
+
+    &::before{
+        content: '';
+        position: absolute;
+        width: function.rem(2);
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: #000;
+    }
+
+}
+
+.row__small{
+
+    border-bottom: 1px solid variables.$section-border;
+    border-left: none;
+
+
+    @include breakpoint.respond-to(sm){
+
+        border-left: 1px solid variables.$section-border;
+    
+
+    }
+
+}

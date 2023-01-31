@@ -1,0 +1,21 @@
+@use "../abstracts/variables" as variables;
+
+.main-bgc{
+    background-color: variables.$main-background
+}
+
+
+.home-container{
+    max-width: 900px !important;
+}
+
+.activity-container{
+    max-width: 600px !important;
+}
+
+.page-container{
+
+    max-width: 970px !important;
+
+}
+

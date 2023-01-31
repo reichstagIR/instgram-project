@@ -1,0 +1,200 @@
+@use "../abstracts/functions" as function;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixin;
+@use "../layout/breakpoints" as breakpoint;
+
+
+$bio-link: rgb(0, 55, 107);
+
+.profile{
+    margin-top: function.rem(35);
+
+
+    &__top{
+
+        align-items: center;
+
+
+        &__pic{
+
+            text-align: center;
+            img{
+
+                border-radius: 50%;
+                width: 150px;
+            }
+
+            &--visited-store{
+
+                img{
+
+                    @include mixin.visited-story-border(3px , 3px);
+                }
+
+            }
+
+            &--insisted-store{
+
+                img{
+
+                    @include mixin.story-border(3px , 3px);
+                }
+
+            }
+
+        }
+
+        &__info{
+
+            text-align: right;
+            color: variables.$profile-color;
+
+            &__username{
+
+                @include mixin.flex(start , center , row);
+                flex-wrap: wrap;
+
+                p{
+                    margin-bottom: 0;
+                    margin-left: function.rem(20);
+                    font-size: function.rem(18);
+                }
+
+                a{
+                    padding: function.rem(5) function.rem(14);
+                    background-color: variables.$section-select-bgc;
+                    font-size: function.rem(14);
+                    border-radius: function.rem(10);
+                    margin: function.rem(4) function.rem(3);
+                    font-weight: 500;
+                    
+                    @include breakpoint.respond-to("md"){
+                        
+                        margin: function.rem(4) function.rem(3);
+                        margin: 0 function.rem(3);
+
+                    }
+
+                    &:hover{
+
+                        background-color: variables.$section-border;
+
+                    }
+
+
+                }
+
+                &__btn-follow{
+
+                    all: unset;
+                    background-color: variables.$main-btn-color !important;
+                    padding: function.rem(5) function.rem(14);
+                    color: #fff !important;
+                    border-radius: function.rem(10) !important;
+                }
+
+            }
+
+
+            &__follow-info{
+
+                @include mixin.flex(start , center , row);
+                margin: function.rem(20) 0;
+
+                p{
+                    font-weight: 500;
+                    font-size: function.rem(15);
+                    margin: 0 function.rem(10);
+
+                    @include breakpoint.respond-to("md"){
+                    
+                        margin: 0 function.rem(20);
+
+                    }
+
+                    a{
+                        font-weight: normal;
+                        margin-right: function.rem(2);
+
+
+                    }
+                }
+
+            }
+
+            &__bio{
+    
+                &__name{
+    
+                    font-weight: 500;
+                    font-size: function.rem(15);
+                    margin-bottom: 0;
+    
+                }
+
+                &__text{
+
+                    margin-bottom: 0;
+
+                }
+
+                &__link{
+                    color: $bio-link;
+                }
+    
+            }
+
+        }
+
+
+    }
+
+    &__middle{
+
+        margin: function.rem(10) 0;
+
+        &__slider{
+
+            &__wrapper{
+
+                height: function.rem(150);
+
+            }
+
+            &__item{
+
+                @include mixin.flex(center , center , column);
+
+                &__img{
+
+                    width: function.rem(75);
+                    border-radius: 100%;
+
+                    &--visited{
+
+                        @include mixin.visited-story-border(2px , 2px);
+
+                    }
+
+                    &--store-border{
+                        @include mixin.story-border(2px , 2px);
+                    }
+
+                }
+
+                &__username{
+
+                    margin-bottom: 0;
+                    margin-top: function.rem(12);
+                    color: variables.$profile-color;
+                    font-size: function.rem(15);
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

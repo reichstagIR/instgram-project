@@ -1,0 +1,77 @@
+@use "../abstracts/functions" as function;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixin;
+@use "../layout/breakpoints" as breakpoint;
+
+
+
+.results{
+
+    background-color: #fff;
+    padding: function.rem(10) function.rem(16);
+    border-radius: function.rem(5);
+
+    &__result{
+
+        @include mixin.flex(space-between , center , row);
+        margin: function.rem(15) 0;
+
+        &__img{
+
+            width: function.rem(60);
+            border-radius: 50%;
+
+        }
+
+        &__username{
+
+            margin-bottom: 0;
+            font-size: function.rem(15);
+            font-weight: 500;
+            
+        }
+
+        &__btn-follow{
+
+            all: unset;
+            background-color: #1877f2;
+            padding: function.rem(5) function.rem(10);
+            color: #fff;
+            border-radius: function.rem(7);
+            font-size: function.rem(14);
+            cursor: pointer;
+
+
+            &:hover{
+
+                color: #fff;
+
+            }
+
+
+            &--followed{
+
+                background-color: variables.$section-select-bgc;
+                color: variables.$profile-color;
+                font-weight: 500;
+
+                &:hover{
+
+                    color: variables.$profile-color;
+    
+                }
+
+            }
+
+        }
+
+    }
+
+
+    &__no-search{
+
+        @include mixin.default-message;
+
+    }
+
+} 

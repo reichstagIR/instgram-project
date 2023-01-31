@@ -1,0 +1,90 @@
+@use "../abstracts/functions" as function;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixin;
+@use "../layout/breakpoints" as breakpoint;
+
+.activities{
+
+    &__activity{
+
+        @include mixin.flex(space-between , center , row);
+        margin: function.rem(23) 0;
+
+        &__img{
+
+            width: function.rem(64);
+            border-radius: 100%;
+
+        }
+
+        &__username{
+
+            color: variables.$profile-color;
+            font-weight: 600;
+
+        }
+
+        &__action{
+
+            color: variables.$profile-color;
+            font-size: function.rem(14);
+            margin-right: function.rem(3);
+        }
+
+        &__time{
+            
+            color: variables.$profile-bio-color;
+            font-size: function.rem(13);
+
+        }
+
+        &__follow{
+
+            all: unset;
+            background-color: #1877f2;
+            padding: function.rem(5) function.rem(10);
+            color: #fff;
+            border-radius: function.rem(7);
+            font-size: function.rem(14);
+            cursor: pointer;
+
+            &:hover{
+
+                color: #fff;
+
+            }
+
+
+            &--followed{
+
+                background-color: variables.$section-select-bgc;
+                color: variables.$profile-color;
+                font-weight: 500;
+
+                &:hover{
+                    
+                    color: variables.$profile-color;
+    
+                }
+            }
+
+
+        }
+
+        &__post-img{
+
+            width: function.rem(50);
+
+        }
+
+        
+    }
+
+
+    &__no-activity{
+
+        @include mixin.default-message;
+
+    }
+
+}

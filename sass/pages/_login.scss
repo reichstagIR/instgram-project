@@ -1,0 +1,162 @@
+@use "../abstracts/functions" as function;
+@use "../abstracts/mixins" as mixing;
+@use "../abstracts/variables" as variable;
+
+$main-border-color: rgb(220, 222, 225);
+$main-text-color: rgb(168, 172, 179);
+$secondary-border-color: rgb(131, 58, 180);
+$main-fail-color: rgb(252, 16, 13);
+
+
+.login-card{
+
+    background-color: #fff;
+    max-width: function.rem(400);
+    width: 100%;
+    height: function.rem(416);
+    box-shadow: -5px 7px 38px 4px rgb(194 194 194 / 30%);
+    border-radius: function.rem(8);
+    position: relative;
+    overflow: hidden;
+
+    @include mixing.flex(center , center , row);
+
+    &__form-changer{
+
+        width: 78%;
+        position: absolute;
+        transition: transform 0.2s;
+
+        @include mixing.flex(center , unset , column);
+
+        &__header{
+
+            text-align: center;
+
+            &__img{
+                width: function.rem(68);
+            }
+            
+            &__edit-icon{
+
+                margin-left: function.rem(7);
+                color: $main-text-color;
+                font-size: function.rem(19.2);
+                cursor: pointer;
+
+            }
+
+            &__paragraph{
+                font-weight: bold;
+                font-size: function.rem(26);
+            }
+
+            &__timer-wrapper{
+                margin: function.rem(16) 0;
+                font-size: function.rem(14.4);
+
+                &__timer{
+                    font-weight: bold;
+                }
+
+            }
+
+            &__resend-sms{
+
+                margin: function.rem(16) 0;
+                font-size: function.rem(14.4);
+                cursor: pointer;
+                display: none;
+            }
+
+        }
+
+        &__body{
+
+            margin-top: function.rem(16);
+
+            &__input-wrapper{
+
+                border-bottom: 1px solid $main-border-color;
+                padding: function.rem(9) 0;
+
+                &__label{
+
+                    display: inline-block;
+                    transform: translate(function.rem(-8) , function.rem(22.4));
+                    color: $main-text-color;
+                    font-size: function.rem(15);
+                    transition: transform 0.3s;
+
+                }
+
+                &__input{
+
+                    all: unset;
+                    width: 93%;
+                    z-index: 2;
+
+                }
+
+                &__icon{
+
+                    font-size: function.rem(20);
+                    color: $main-text-color;
+
+                }
+
+            }
+            
+            
+            &__submit-btn{
+                
+                all: unset;
+                padding: function.rem(12.8) 0;
+                width: 93%;
+                font-weight: 500;
+                cursor: pointer;
+                border-width: 2px;
+                border-style: solid;
+                border-color: $secondary-border-color;
+                text-align: center;
+                
+                &:hover{
+                    
+                    border-image: variable.$instagram-gradient;
+                    
+                }
+                
+            }
+            
+            &__input-wrapper--focus{
+    
+                .login-card__form-changer__body__input-wrapper__label{
+                    transform: translate(0);
+                }
+                
+            }
+
+
+            &__input-wrapper--fail{
+
+                border-bottom: 1px solid $main-fail-color;
+
+                .login-card__form-changer__body__input-wrapper__label{
+                    color: $main-fail-color;
+                }
+                
+                .login-card__form-changer__body__input-wrapper__icon{
+                    color: $main-fail-color;
+                }
+
+            }
+
+        }
+
+    }
+
+    &__form-changer--active{
+        transform: translate(0) !important;
+    }
+
+}

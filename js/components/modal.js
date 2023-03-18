@@ -112,6 +112,15 @@ $(document).ready(function(){
         $(this).parent().parent().css("display" , "none");
         $("body").css("overflow" , "auto");
 
+        $(".modal-wrapper--share-modal__modal-section__selected-items__selected-item").each(function(){
+            $(this).remove();
+        });
+
+        $(".modal-wrapper--share-modal__modal-section__selected-items__selected-item").each(function(){
+            $(this).removeClass("modal-wrapper--share-modal__accounts-section__account__svg--active");
+        });
+
+
     })
 
 

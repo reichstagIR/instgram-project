@@ -7,7 +7,7 @@ $(document).ready(function(){
     
     const sliderStory = new Swiper('.swiper', {
         
-        slidesPerView: 5,
+        slidesPerView: 2,
         
         spaceBetween: 10,
         
@@ -18,6 +18,19 @@ $(document).ready(function(){
             nextEl: '.home__left-side__new-posts__post__body__post-slider__bullet-btn-navigation-next',
             prevEl: '.home__left-side__new-posts__post__body__post-slider__bullet-btn-navigation-prev',
         },
+
+
+        breakpoints: {
+            320: {
+              slidesPerView: 3,
+            },
+            480: {
+              slidesPerView: 4,
+            },
+            640: {
+              slidesPerView: 5,
+            }
+          }
         
         
     });
@@ -199,6 +212,12 @@ $(document).ready(function(){
 
     $(".home__left-side__new-posts__post__footer__actions__item--save").on("click" , function(){
         $(this).toggleClass("home__left-side__new-posts__post__footer__actions__item--saved");
+    })
+
+    // like action
+
+    $(".home__left-side__new-posts__post__footer__actions__item--like").on("click" , function(){
+        $(this).toggleClass("home__left-side__new-posts__post__footer__actions__item--like--set")
     })
 
 

@@ -1,6 +1,7 @@
+import "../node_modules/swiper/swiper-bundle.js";
+
+
 $(document).ready(function(){
-
-
 
 
     new Swiper(".profile__middle__slider" , {

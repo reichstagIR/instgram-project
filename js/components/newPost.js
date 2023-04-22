@@ -1,4 +1,5 @@
 import insertText from 'https://cdn.jsdelivr.net/npm/insert-text-at-cursor@0.3.0/index.js';
+import "../../node_modules/swiper/swiper-bundle.js";
 
 
 $(document).ready(function(){

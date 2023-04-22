@@ -1,3 +1,4 @@
+import "../node_modules/swiper/swiper-bundle.js";
 
 $(document).ready(function(){
     

@@ -82,7 +82,7 @@ $selected-users-color: rgb(0, 149, 246);
                         background-color: $selected-users-bgc;
                         padding: function.rem(5) function.rem(10);
                         border-radius: function.rem(10);
-                        margin: 0 function.rem(5);
+                        margin: function.rem(3) function.rem(5);
             
                         &__username{
                             margin-bottom: 0;

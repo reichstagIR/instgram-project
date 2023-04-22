@@ -126,7 +126,7 @@ $(document).ready(function(){
 
     $(".addpost__modal-wrapper__section--post-setting__options__picker svg").on("click" , function(){
 
-        $("emoji-picker").toggleClass("addpost__modal-wrapper__section--post-setting__options__picker--active")
+        $("emoji-picker").first().toggleClass("addpost__modal-wrapper__section--post-setting__options__picker--active")
 
     })
 

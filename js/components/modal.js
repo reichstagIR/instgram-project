@@ -116,10 +116,9 @@ $(document).ready(function(){
             $(this).remove();
         });
 
-        $(".modal-wrapper--share-modal__modal-section__selected-items__selected-item").each(function(){
+        $(".modal-wrapper--share-modal__accounts-section__account__svg").each(function(){
             $(this).removeClass("modal-wrapper--share-modal__accounts-section__account__svg--active");
         });
-
 
     })
 

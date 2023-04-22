@@ -3,12 +3,12 @@ $(document).ready(function(){
 
 
 
-    const highlights = new Swiper(".profile__middle__slider" , {
+    new Swiper(".profile__middle__slider" , {
     
 
-        allowTouchMove: false,
+        allowTouchMove: true,
         spaceBetween: 0,
-        slidesPerView: 3,
+        slidesPerView: 2,
     
         
         navigation: {
@@ -17,23 +17,20 @@ $(document).ready(function(){
         },
 
         breakpoints: {
-          
+
+          320: {
+            slidesPerView: 3,
+          },
           640: {
             slidesPerView: 4,
           },
 
           768: {
             slidesPerView: 6,
-          },
-
-          1024: {
-            slidesPerView: 6,  
-          }   
+          },   
 
       }
 
     })
-
-
 
 })

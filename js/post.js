@@ -3,10 +3,10 @@ import insertText from 'https://cdn.jsdelivr.net/npm/insert-text-at-cursor@0.3.0
 $(document).ready(function(){
 
 
-    const postSlider = new Swiper(".post__left__swiper" , {
+     new Swiper(".post__left__swiper" , {
     
         slidesPerView: 1,
-        allowTouchMove: false,
+        allowTouchMove: true,
         spaceBetween: 0,
     
         

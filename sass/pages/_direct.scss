@@ -156,8 +156,15 @@
 
             padding: function.rem(16) function.rem(20);
             @include mixin.flex(start , unset , column);
-            height: calc(100% - 136px);
+            height: 100%;
             overflow: auto;
+            max-height: function.rem(492);
+            
+            @include breakpoint.respond-to(sm){
+                max-height: calc(100% - 136px);
+            }
+
+
 
             &.active{
 

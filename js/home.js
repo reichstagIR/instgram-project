@@ -11,7 +11,7 @@ $(document).ready(function(){
         
         spaceBetween: 10,
         
-        allowTouchMove: false,
+        allowTouchMove: true,
         
         
         navigation: {
@@ -36,10 +36,10 @@ $(document).ready(function(){
     });
     
     
-    const postSlider = new Swiper(".home__left-side__new-posts__post__body__post-slider" , {
+    new Swiper(".home__left-side__new-posts__post__body__post-slider" , {
     
         slidesPerView: 1,
-        allowTouchMove: false,
+        allowTouchMove: true,
         autoHeight: true,
         spaceBetween: 0,
     
@@ -79,10 +79,10 @@ $(document).ready(function(){
     })
 
 
-    const suggestSlider = new Swiper(".home__left-side__suggest-account__slider" , {
+    new Swiper(".home__left-side__suggest-account__slider" , {
     
         slidesPerView: 2,
-        allowTouchMove: false,
+        allowTouchMove: true,
         autoHeight: true,
         spaceBetween: 15,
         

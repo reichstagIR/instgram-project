@@ -1,3 +1,11 @@
+@use "../layout/breakpoints" as breakpoints;
 h1 , h2 , h3 , h4 , h5 , h6{
     margin-top: 0;
+}
+
+html{
+    font-size: 15px;
+    @include breakpoints.respond-to(sm){
+        font-size: 16px;
+    }
 }

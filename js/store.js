@@ -5,7 +5,6 @@ $(document).ready(function(){
     const slideQuantity = $(".store__card__slider__slide");
     const paginationItems = $(".store__card__pagination");
     const paginationItem = $(".store__card__slider__slide");
-    const navigateBtns = $(".home__left-side__new-posts__post__body__post-slider__bullet-btn");
     const pauseAction = $(".store__card__info__actions__pause");
     const muteAction = $(".store__card__info__actions__mute");
     const videosSlide = $(".store__card__slider__slide__video");

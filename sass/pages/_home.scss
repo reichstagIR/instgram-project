@@ -109,6 +109,7 @@ $link-color: rgb(0, 55, 107);
                 }
 
             }
+
         }
 
     }
@@ -118,14 +119,36 @@ $link-color: rgb(0, 55, 107);
 .home__left-side{
 
     margin-right: 0;
+    margin-top: function.rem(102);
+    margin-bottom: function.rem(40);
 
     @include breakpoint.respond-to(lg){
         margin-right: function.rem(19);
     }
 
+    @include breakpoint.respond-to(sm){
+        margin-top: 0;
+    }
+
     &__story-slider{
 
-        @include mixin.home-sections(function.rem(13) function.rem(10));
+        @include mixin.home-sections(function.rem(13) 0);
+        position: fixed;
+        top: function.rem(10);
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        border-left: 0;
+        border-radius: 0;
+        z-index: 999;
+
+        @include breakpoint.respond-to(sm){
+
+            position: static;
+            border-radius: function.rem(15);
+            border-left: 1px solid variables.$section-border;
+            @include mixin.home-sections(function.rem(9) function.rem(10));
+        }
 
         &__slider{
             width: 100%;

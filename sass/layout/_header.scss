@@ -1,6 +1,7 @@
 @use "../abstracts/functions" as function;
 @use "../abstracts/mixins" as mixin;
 @use "../abstracts/variables" as variable;
+@use "../layout/breakpoints" as breakpoint;
 
 $search-bar-bgc: rgb(239, 239, 239);
 $header-border-bottom-color: rgb(219, 219, 219);
@@ -10,9 +11,22 @@ $search-box-hover-bgc: rgb(250, 250, 250);
 $subtext-color: rgb(142, 142, 142);
 
 .main-header{
+    
     padding: function.rem(19.2) 0;
     background-color: #fff;
-    border-bottom: 1px solid $header-border-bottom-color;
+    border-top: function.rem(4) solid variable.$section-border;
+    margin-bottom: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    
+    @include breakpoint.respond-to(sm){
+        border-bottom: 1px solid $header-border-bottom-color;
+        position: static;
+        border-top: none;
+    };
 
     &__item-wrapper{
 

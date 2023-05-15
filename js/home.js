@@ -6,24 +6,20 @@ $(document).ready(function(){
     // swiper sliders
     
     
-    const sliderStory = new Swiper('.swiper', {
+    new Swiper('.swiper', {
         
         slidesPerView: 2,
-        
         spaceBetween: 10,
-        
         allowTouchMove: true,
-        
         
         navigation: {
             nextEl: '.home__left-side__new-posts__post__body__post-slider__bullet-btn-navigation-next',
             prevEl: '.home__left-side__new-posts__post__body__post-slider__bullet-btn-navigation-prev',
         },
 
-
         breakpoints: {
             320: {
-              slidesPerView: 3,
+              slidesPerView: 4,              
             },
             480: {
               slidesPerView: 4,
@@ -32,7 +28,6 @@ $(document).ready(function(){
               slidesPerView: 5,
             }
           }
-        
         
     });
     
@@ -44,7 +39,6 @@ $(document).ready(function(){
         autoHeight: true,
         spaceBetween: 0,
     
-        
         pagination: {
             el: '.swiper-pagination',
             type: 'bullets',

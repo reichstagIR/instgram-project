@@ -6,7 +6,7 @@ $(document).ready(function(){
     // swiper sliders
     
     
-    new Swiper('.swiper', {
+    new Swiper('.home__left-side__story-slider__slider', {
         
         slidesPerView: 2,
         spaceBetween: 10,
@@ -43,7 +43,7 @@ $(document).ready(function(){
             el: '.swiper-pagination',
             type: 'bullets',
             bulletClass: "home__left-side__new-posts__post__body__post-slider__bullet-btn",
-            bulletActiveClass: "home__left-side__new-posts__post__body__post-slider__bullet-btn--active",
+            bulletActiveClass: "home__left-side__new-posts__post__body__post-slider__bullet-btn--active"
         },
         
         navigation: {

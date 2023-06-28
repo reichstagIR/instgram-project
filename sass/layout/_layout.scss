@@ -1,9 +1,22 @@
 @use "../abstracts/variables" as variables;
+@use "../layout/breakpoints" as breakpoints;
 
 .main-bgc{
-    background-color: variables.$main-background
+    background-color: variables.$main-background;
+
 }
 
+.main-body{
+
+    @include breakpoints.respond-to(sm){
+
+        margin-bottom: 0;
+        
+    }
+
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+}
 
 .home-container{
     max-width: 900px !important;
